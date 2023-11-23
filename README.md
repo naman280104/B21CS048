@@ -147,7 +147,7 @@ Please write your answers here
     The file system is organized into a hierarchy of directories. The root directory is the top-level directory of the file system. All other directories are contained within the root directory.
     When a file is opened, the kernel looks up the file name in the directory table to get the inode number for the file. The kernel then reads the inode from the inode table to get the location of the data blocks for the file. The kernel then maps       the data blocks into the buffer cache to read or write the file data.
 
-15. System calls and library functions are both mechanisms used by programs to request services from the operating system. Following are some differences - 
+14. System calls and library functions are both mechanisms used by programs to request services from the operating system. Following are some differences - 
     System calls are implemented in the kernel, which is the core of the operating system. When a program makes a system call, the kernel is invoked directly to perform the requested service. System calls are typically used to access hardware             resources, such as the file system or the network, or to perform privileged operations, such as creating a new process or terminating another process.
     Library functions, on the other hand, are implemented in user space, which is the memory space that is accessible to user programs. When a program calls a library function, the code for the function is simply copied into the program's memory and      executed. Library functions are typically used to perform common tasks, such as reading and writing files, manipulating strings, or performing mathematical operations.
 
@@ -166,6 +166,26 @@ Please write your answers here
        strcpy(): Copies a string
        strlen(): Returns the length of a string
 
-16. 
+15. In xv6, paging is used to manage memory. xv6 uses 32-bit virtual addresses (VAs), which means that the maximum memory size is 4GB. A page size of 4KB is used, and a two-level page table is employed. Paging enables non-contiguous memory allocation by dividing memory into frames of equal size and programs into pages of equal size. This allows the operating system to allocate memory to processes in a more efficient way, even if the memory is not physically contiguous.
 
+16. Three essential commands are -
+      a) ls: It lists all content in a directory
+      b) mkdir: It is used to create new directory with a specified name.
+      c) Cat: It is used to concatenate files and print them to the console.
 
+17. In xv6, process synchronization relies on locks, which play a crucial role in maintaining memory consistency by preventing race conditions. This mechanism is vital for preventing issues like deadlock and ensuring that processes coordinate effectively to access shared resources without conflicting with one another.
+
+18. When an interrupt occurs, the processor halts the execution of the current program and initiates the execution of an interrupt handler. The role of this handler is to manage and address the interrupt. After handling the interrupt, the program resumes execution (if it hasn't been terminated). The values of its registers are saved when the interrupt occurs so that they can be reinstated at that point.
+
+19. xv6 has no implementation of a virtual memory.
+
+20. make qemu-nox command used to boot the XV6.
+     Following processes are involved
+     a) BIOS initialization
+     b) Boot loader execution
+     c) Kernel entry point
+     d) Memory setup
+     e) Device initialization
+     f) Process creation
+     g) User program execution
+   Throughout the boot process, the kernel performs various checks and configurations to ensure the system is in a stable state and ready to execute user programs. This involves enabling interrupts, setting up system call handling, and initializing system parameters.

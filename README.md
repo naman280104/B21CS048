@@ -117,3 +117,55 @@ Welcome to the XV Quiz for CSL 3030 - Operating Systems!
 
 ## Answers
 Please write your answers here
+1. b
+2. b
+3. d
+4. b
+5. a
+6. c
+7. a
+8. a
+9. d
+10. b
+11. c
+12. In XV6, processes can be in following states -
+       a) UNUSED: The process has not been allocated yet.
+       b) EMBRYO: The process has been allocated, but it has not yet started running.
+       c) RUNNING: The process is currently running on the CPU.
+       d) RUNNABLE: The process is ready to run, but the CPU is not currently available.
+       e) ZOMBIE: The process has finished running, but its parent process has not yet reaped it.
+       f) SLEEPING: The process is waiting for an event to occur, such as a file to be opened or a network connection to be established.
+       
+13. XV6 is a simple layered file system that consists follwoing key components -
+      a) File descriptor: It abstracts many Unix resources like pipes, files and devices.
+      b) Pathname: It provides hierarchical path names like /usr/local/...., and resolves them with recursive lookup.
+      c) File descriptor: This layer unifies resource management, while the directory layer utilizes inode tables for efficient file handling.
+      d) Inode: The inode layer associates each file with a unique inode number and data blocks for efficient data storage and retrieval.
+      e) Logging: The logging layer facilitates transactional updates to multiple blocks, ensuring data integrity in the event of system crashes.
+      f) Buffer Cache: The buffer cache layer optimizes disk access and enforces data integrity by caching and synchronizing block modifications.
+      g) Disk: The disk layer reads and writes blocks on an virtio hard drive.  
+    The file system is organized into a hierarchy of directories. The root directory is the top-level directory of the file system. All other directories are contained within the root directory.
+    When a file is opened, the kernel looks up the file name in the directory table to get the inode number for the file. The kernel then reads the inode from the inode table to get the location of the data blocks for the file. The kernel then maps       the data blocks into the buffer cache to read or write the file data.
+
+15. System calls and library functions are both mechanisms used by programs to request services from the operating system. Following are some differences - 
+    System calls are implemented in the kernel, which is the core of the operating system. When a program makes a system call, the kernel is invoked directly to perform the requested service. System calls are typically used to access hardware             resources, such as the file system or the network, or to perform privileged operations, such as creating a new process or terminating another process.
+    Library functions, on the other hand, are implemented in user space, which is the memory space that is accessible to user programs. When a program calls a library function, the code for the function is simply copied into the program's memory and      executed. Library functions are typically used to perform common tasks, such as reading and writing files, manipulating strings, or performing mathematical operations.
+
+    Here are some examples of system calls in XV6:
+       fork(): Creates a new process
+       exec(): Loads and executes a new program
+       open(): Opens a file
+       read(): Reads data from a file
+       write(): Writes data to a file
+
+    Here are some examples of library functions in XV6:
+       printf(): Prints formatted output to the console
+       scanf(): Reads formatted input from the console
+       malloc(): Allocates memory
+       free(): Frees memory
+       strcpy(): Copies a string
+       strlen(): Returns the length of a string
+
+16. 
+
+
